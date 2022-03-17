@@ -1,11 +1,21 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
-    siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
+    title: `j0w0`,
+    description: `Hi, I'm Josh. I am a Front-End Engineer and these are a few of my projects.`,
+    author: `Josh Woodcock`,
+    siteUrl: `https://www.j0w0.com/`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-wordpress`,
+      options: {
+        /*
+         * The full URL of the WordPress site's GraphQL API.
+         * Example : 'https://www.example-site.com/graphql'
+         */
+        url: `http://j0w0api.local/graphql`,
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-plugin-image`,
     {

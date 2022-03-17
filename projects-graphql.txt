@@ -1,0 +1,31 @@
+query NewQuery {
+  projects {
+    nodes {
+      id
+      slug
+      title
+      content
+      featuredImage {
+        node {
+          id
+          altText
+          sourceUrl
+        }
+      }
+      projectCategories {
+        nodes {
+          name
+          slug
+          taxonomyName
+        }
+      }
+      projectTags {
+        nodes {
+          name
+          slug
+          taxonomyName
+        }
+      }
+    }
+  }
+}

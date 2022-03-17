@@ -1,31 +1,56 @@
-import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import React from 'react'
+import { graphql } from 'gatsby'
+import Layout from '../components/layout'
+import Seo from '../components/seo'
 
-import Layout from "../components/layout"
-import Seo from "../components/seo"
+const Home = ({ data }) => {
+  return (
+    <Layout>
+      <Seo title="Home" />
+      <h1>Portfolio</h1>
+      {data.allWpProject.nodes.map(project => {
+        return (
+          <div key={project.id}>
+            <h3>{project.title}</h3>
+          </div>
+        )
+      })}
+    </Layout>
+  )
+}
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link> <br />
-      <Link to="/using-ssr">Go to "Using SSR"</Link> <br />
-      <Link to="/using-dsg">Go to "Using DSG"</Link>
-    </p>
-  </Layout>
-)
+export const pageQuery = graphql`
+  query getProjects {
+    allWpProject {
+      nodes {
+        id
+        slug
+        title
+        content
+        featuredImage {
+          node {
+            id
+            altText
+            sourceUrl
+          }
+        }
+        projectCategories {
+          nodes {
+            name
+            slug
+            taxonomyName
+          }
+        }
+        projectTags {
+          nodes {
+            name
+            slug
+            taxonomyName
+          }
+        }
+      }
+    }
+  }
+`
 
-export default IndexPage
+export default Home
