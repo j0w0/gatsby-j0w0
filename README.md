@@ -1,5 +1,3 @@
-<h1 align="center">
-  j0w0 Portfolio
-</h1>
+#j0w0 Portfolio
 
 Headless portfolio site using Gatsby and Wordpress.
