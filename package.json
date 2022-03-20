@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "j0w0",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Software Development portfolio of Josh Woodcock",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Josh Woodcock <josh@j0w0.com>",
   "dependencies": {
     "gatsby": "^4.9.2",
     "gatsby-plugin-gatsby-cloud": "^4.9.0",
@@ -15,6 +15,7 @@
     "gatsby-source-filesystem": "^4.9.0",
     "gatsby-source-wordpress": "^6.10.0",
     "gatsby-transformer-sharp": "^4.9.0",
+    "html-react-parser": "^1.4.8",
     "prop-types": "^15.8.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
@@ -38,9 +39,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/j0w00/gatsby-j0w0"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/j0w00/gatsby-j0w0/issues"
   }
 }

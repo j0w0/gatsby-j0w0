@@ -1,30 +1,35 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import SiteMeta from '../components/SiteMeta/SiteMeta'
+import { Link, graphql } from 'gatsby'
 
-const Home = ({ data }) => {
+const Project = ({ data }) => {
+  const post = data.allWpProject.nodes[0]
+
+  const tags = []
+  post.projectTags.nodes.forEach((tag) => {
+    tags.push(tag.name)
+  })
+
   return (
     <Layout>
-      <SiteMeta title="Home" />
-      <h1>Portfolio</h1>
-      {data.allWpProject.nodes.map(project => {
-        return (
-          <div key={project.id}>
-            <p>
-              <Link to={project.uri}>{project.title}</Link><br />
-              <small>{project.projectCategories.nodes[0].name}</small>
-            </p>
-          </div>
-        )
-      })}
+      <SiteMeta title={post.title} />
+      <h1>{post.title}</h1>
+      <div dangerouslySetInnerHTML={{ __html: post.content }} />
+      <p>Category: {post.projectCategories.nodes[0].name}</p>
+      <p>Tags: {tags.join(", ")}</p>
+      <Link to="/">Go Back Home</Link>
     </Layout>
   )
 }
 
-export const pageQuery = graphql`
-  query getProjects {
-    allWpProject {
+export default Project
+
+export const query = graphql`
+  query($slug: String!) {
+    allWpProject(filter: {
+      slug: { eq: $slug }
+    }) {
       nodes {
         id
         slug
@@ -56,5 +61,3 @@ export const pageQuery = graphql`
     }
   }
 `
-
-export default Home
