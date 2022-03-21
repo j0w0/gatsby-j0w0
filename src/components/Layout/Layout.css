@@ -17,6 +17,26 @@ body {
   background: #4d0c73;
 }
 
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
 .site-footer {
   margin-top: 2rem;
+}
+
+.header-menu ul {
+  display: flex;
+  column-gap: 15px;
+}
+
+.header-menu a {
+  color: white;
+}
+
+.header-menu ul {
+  list-style: none;
+  padding: 0;
 }

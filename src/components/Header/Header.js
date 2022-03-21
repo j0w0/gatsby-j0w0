@@ -17,6 +17,14 @@ const Header = ({ siteTitle }) => {
             {siteTitle}
           </Link>
         </h1>
+
+        <nav className="header-menu">
+          <ul>
+            <li><Link to="/about">About</Link></li>
+            <li><Link to="/portfolio">Portfolio</Link></li>
+            <li><Link to="/contact">Contact</Link></li>
+          </ul>
+        </nav>
       </div>
     </header>
   )

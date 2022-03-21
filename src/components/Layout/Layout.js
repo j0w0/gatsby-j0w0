@@ -22,7 +22,7 @@ const Layout = ({ children }) => {
       <div className="container">
         <main>{children}</main>
         <footer className="site-footer">
-          <a href="https://www.j0w0.com">Josh Woodcock</a> &#47;&#47; Front-End Software Engineer 🏳️‍🌈 ✌🏼
+          <a href="https://www.j0w0.com" target="_blank">Josh Woodcock</a> &#47;&#47; Front-End Software Engineer 🏳️‍🌈 ✌🏼
         </footer>
       </div>
     </>
