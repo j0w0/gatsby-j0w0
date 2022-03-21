@@ -11,7 +11,7 @@ const Page = ({ data }) => {
       <SiteMeta title={page.title} />
       <h1>{page.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: page.content }} />
-      <Link to="/">Go Back Home</Link>
+      <Link to="/">Back to Home</Link>
     </Layout>
   )
 }
