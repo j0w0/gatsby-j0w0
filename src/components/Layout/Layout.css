@@ -5,6 +5,7 @@ html {
 
 body {
   margin: 0;
+  line-height: 1.5;
 }
 
 .container {
@@ -13,7 +14,14 @@ body {
   padding: 1.45rem 1.0875rem;
 }
 
-.site-header {
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site-header,
+.site-footer {
   background: #4d0c73;
 }
 
@@ -21,10 +29,6 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.site-footer {
-  margin-top: 2rem;
 }
 
 .header-menu ul {
@@ -39,4 +43,14 @@ body {
 .header-menu ul {
   list-style: none;
   padding: 0;
+}
+
+.site-content {
+  flex: 1;
+}
+
+.site-footer,
+.site-footer a {
+  color: white;
+  text-decoration: none;
 }

@@ -2,8 +2,9 @@ import * as React from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql } from "gatsby"
 
-import Header from "../Header/Header"
 import "./Layout.css"
+import Header from "../Header/Header"
+import Footer from "../Footer/Footer"
 
 const Layout = ({ children }) => {
   const data = useStaticQuery(graphql`
@@ -17,15 +18,13 @@ const Layout = ({ children }) => {
   `)
 
   return (
-    <>
+    <div className="site">
       <Header siteTitle={data.site.siteMetadata?.title || `j0w0 | Josh Woodcock`} />
-      <div className="container">
-        <main>{children}</main>
-        <footer className="site-footer">
-          <a href="https://www.j0w0.com" target="_blank" rel="noreferrer">Josh Woodcock</a> &#47;&#47; Front-End Software Engineer 🏳️‍🌈 ✌🏼
-        </footer>
-      </div>
-    </>
+      <main className="site-content">
+        <div className="container">{children}</div>
+      </main>
+      <Footer />
+    </div>
   )
 }
 
