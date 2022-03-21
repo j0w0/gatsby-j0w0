@@ -11,6 +11,8 @@ const Page = ({ data }) => {
       <SiteMeta title={page.title} />
       <h1>{page.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: page.content }} />
+      {/* { TODO: add form to contact page } */}
+      {/* { TODO: side column of contact cta } */}
       <Link to="/">Back to Home</Link>
     </Layout>
   )

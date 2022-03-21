@@ -16,7 +16,7 @@ const Index = () => {
         </a>
       </p>
 
-      <Link to="/portfolio">Check out my portfolio.</Link>
+      <p><Link to="/portfolio">Check out my portfolio.</Link></p>
     </Layout>
   )
 }

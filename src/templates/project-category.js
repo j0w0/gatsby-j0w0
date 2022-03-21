@@ -10,7 +10,8 @@ const ProjectCategory = ({ data }) => {
     <Layout>
       <SiteMeta title={page.name} />
       <h1>{page.name}</h1>
-      {/* { query for projects in this category } */}
+      {/* { TODO: query for projects in this category } */}
+      {/* { TODO: side column of categories/tags } */}
       <Link to="/portfolio">Back to Portfolio</Link>
     </Layout>
   )

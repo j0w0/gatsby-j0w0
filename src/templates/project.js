@@ -16,6 +16,9 @@ const Project = ({ data }) => {
       <h1>{project.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
+      {/* { TODO: add image/video slider } */}
+      {/* { TODO: get/display custom post fields } */}
+
       <p>Category:</p>
       <ul>
         <li><Link to={categoryUri}>{categoryName}</Link></li>
@@ -27,6 +30,9 @@ const Project = ({ data }) => {
           return <li key={tag.id}><Link to={tag.uri}>{tag.name}</Link></li>
         })}
       </ul>
+
+      {/* { TODO: side column of related projects } */}
+      {/* { TODO: side column of contact cta } */}
 
       <Link to="/portfolio">Back to Portfolio</Link>
     </Layout>
