@@ -7,21 +7,25 @@ exports.createPages = async ({ graphql, actions }) => {
     {allWpPage {
       nodes {
         slug
+        id
       }
     }
     allWpProject {
       nodes {
         slug
+        portfolioPdf
       }
     }
     allWpProjectTag {
       nodes {
         slug
+        id
       }
     }
     allWpProjectCategory {
       nodes {
         slug
+        id
       }
     }}
   `).then(result => {
@@ -32,6 +36,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/project.js`),
         context: {
           slug: node.slug,
+          pdfId: parseInt(node.portfolioPdf) || 0
         },
       })
     })
@@ -42,6 +47,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/project-category.js`),
         context: {
           slug: node.slug,
+          id: node.id
         },
       })
     })
@@ -52,6 +58,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/project-tag.js`),
         context: {
           slug: node.slug,
+          id: node.id
         },
       })
     })
@@ -62,6 +69,7 @@ exports.createPages = async ({ graphql, actions }) => {
         component: path.resolve(`./src/templates/page.js`),
         context: {
           slug: page.slug,
+          id: page.id
         },
       })
     })

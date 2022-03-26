@@ -4,11 +4,14 @@ import SiteMeta from '../components/SiteMeta/SiteMeta'
 import { Link, graphql } from 'gatsby'
 
 const Project = ({ data }) => {
-  const project = data.allWpProject.nodes[0]
+
+  const project = data.wpProject;
   const {
     name: categoryName,
     uri: categoryUri
   } = project.projectCategories.nodes[0];
+
+  const projectPdf = data.wpMediaItem?.mediaItemUrl;
 
   return (
     <Layout>
@@ -17,7 +20,24 @@ const Project = ({ data }) => {
       <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
       {/* { TODO: add image/video slider } */}
-      {/* { TODO: get/display custom post fields } */}
+
+      {project.websiteUrl && (
+        <div>Website URL: <a href={project.websiteUrl}target="_blank" rel="noreferrer">Demo</a></div>
+      )}
+
+      {project.videoUrl && (
+        <div className="iframe">
+          <iframe
+            src={project.videoUrl}
+            title={`${project.title} Video`}
+            className="iframe-src">
+          </iframe>
+        </div>
+      )}
+
+      {projectPdf && (
+        <div><a href={projectPdf} target="_blank" rel="noreferrer">View Project PDF</a></div>
+      )}
 
       <p>Category:</p>
       <ul>
@@ -42,37 +62,41 @@ const Project = ({ data }) => {
 export default Project
 
 export const query = graphql`
-  query($slug: String!) {
-    allWpProject(filter: {
-      slug: { eq: $slug }
-    }) {
-      nodes {
-        id
-        slug
-        title
-        content
-        uri
-        featuredImage {
-          node {
-            id
-            altText
-            sourceUrl
-          }
-        }
-        projectCategories {
-          nodes {
-            name
-            uri
-          }
-        }
-        projectTags {
-          nodes {
-            name
-            uri
-            id
-          }
+  query($slug: String!, $pdfId: Int!) {
+    wpProject(slug: { eq: $slug }) {
+      id
+      slug
+      title
+      content
+      websiteUrl
+      videoUrl
+      portfolioPdf
+      uri
+      featuredImage {
+        node {
+          id
+          altText
+          sourceUrl
+          mediaItemUrl
         }
       }
+      projectCategories {
+        nodes {
+          name
+          uri
+        }
+      }
+      projectTags {
+        nodes {
+          name
+          uri
+          id
+        }
+      }
+    }
+    wpMediaItem(databaseId: { eq: $pdfId }) {
+      id
+      mediaItemUrl
     }
   }
 `
