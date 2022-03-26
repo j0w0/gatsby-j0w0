@@ -24,7 +24,9 @@ const Portfolio = ({ data }) => {
 
 export const pageQuery = graphql`
   query getProjects {
-    allWpProject {
+    allWpProject(
+      filter: {projectCategories: {nodes: {elemMatch: {slug: {eq: "interactive"}}}}}
+    ) {
       nodes {
         id
         slug
