@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import SiteMeta from '../components/SiteMeta/SiteMeta'
-import { Link, graphql } from 'gatsby'
+import ContactCTA from '../components/ContactCTA/ContactCTA'
 
 const Project = ({ data }) => {
 
@@ -52,8 +53,8 @@ const Project = ({ data }) => {
       </ul>
 
       {/* { TODO: side column of related projects } */}
-      {/* { TODO: side column of contact cta } */}
 
+      <ContactCTA />
       <Link to="/portfolio">Back to Portfolio</Link>
     </Layout>
   )

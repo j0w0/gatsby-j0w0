@@ -1,7 +1,8 @@
 import React from 'react'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import SiteMeta from '../components/SiteMeta/SiteMeta'
-import { Link, graphql } from 'gatsby'
+import ContactCTA from '../components/ContactCTA/ContactCTA'
 
 const ProjectCategory = ({ data }) => {
   const page = data.allWpProjectCategory.nodes[0]
@@ -21,6 +22,8 @@ const ProjectCategory = ({ data }) => {
       })}
 
       {/* { TODO: side column of categories/tags } */}
+
+      <ContactCTA />
       <Link to="/portfolio">Back to Portfolio</Link>
     </Layout>
   )

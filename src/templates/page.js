@@ -1,18 +1,25 @@
 import React from 'react'
+import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import SiteMeta from '../components/SiteMeta/SiteMeta'
-import { Link, graphql } from 'gatsby'
+import ContactCTA from '../components/ContactCTA/ContactCTA'
 
 const Page = ({ data }) => {
   const page = data.allWpPage.nodes[0]
+  const slug = page.slug;
 
   return (
     <Layout>
       <SiteMeta title={page.title} />
       <h1>{page.title}</h1>
       <div dangerouslySetInnerHTML={{ __html: page.content }} />
-      {/* { TODO: add form to contact page } */}
-      {/* { TODO: side column of contact cta } */}
+
+      {slug === "contact" && (
+        /* { TODO: add form to contact page } */
+        <div>this is where the contact form goes</div>
+      )}
+
+      {slug !== "contact" && <ContactCTA />}
       <Link to="/">Back to Home</Link>
     </Layout>
   )
