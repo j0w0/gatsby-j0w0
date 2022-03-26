@@ -72,3 +72,13 @@ iframe {
   width: 100%;
   height: 100%;
 }
+
+label {
+  display: flex;
+}
+
+.error {
+  font-size: 80%;
+  color: red;
+  margin: 0;
+}
