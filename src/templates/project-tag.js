@@ -5,12 +5,21 @@ import { Link, graphql } from 'gatsby'
 
 const ProjectTag = ({ data }) => {
   const page = data.allWpProjectTag.nodes[0]
+  const projects = data.allWpProject?.nodes;
 
   return (
     <Layout>
       <SiteMeta title={page.name} />
       <h1>{page.name}</h1>
-      {/* { TODO: query for projects with this tag } */}
+
+      {projects.map(project => {
+        return (
+          <div key={project.id}>
+            <p><Link to={project.uri}>{project.title}</Link></p>
+          </div>
+        )
+      })}
+
       {/* { TODO: side column of categories/tags } */}
       <Link to="/portfolio">Back to Portfolio</Link>
     </Layout>
@@ -28,6 +37,16 @@ export const query = graphql`
         id
         slug
         name
+      }
+    }
+    allWpProject(filter: {
+      projectTags: {nodes: {elemMatch: {slug: {eq: $slug}}}}
+    }) {
+      nodes {
+        id
+        slug
+        title
+        uri
       }
     }
   }
