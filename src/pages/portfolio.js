@@ -1,7 +1,8 @@
 import React from 'react'
-import { Link, graphql } from 'gatsby'
+import { graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import SiteMeta from '../components/SiteMeta/SiteMeta'
+import ProjectCard from '../components/ProjectCard/ProjectCard'
 
 const Portfolio = ({ data }) => {
   return (
@@ -10,12 +11,10 @@ const Portfolio = ({ data }) => {
       <h1>Portfolio</h1>
       {data.allWpProject.nodes.map(project => {
         return (
-          <div key={project.id}>
-            <p>
-              <Link to={project.uri}>{project.title}</Link><br />
-              <small>{project.projectCategories.nodes[0].name}</small>
-            </p>
-          </div>
+          <ProjectCard
+            project={project}
+            key={project.id}
+          />
         )
       })}
     </Layout>
@@ -37,7 +36,10 @@ export const pageQuery = graphql`
           node {
             id
             altText
-            sourceUrl
+            gatsbyImage(
+              width: 960
+              layout: FULL_WIDTH
+            )
           }
         }
         projectCategories {

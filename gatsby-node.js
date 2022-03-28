@@ -3,13 +3,7 @@ const path = require(`path`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions
   
-  const query = await graphql(`
-    {allWpPage {
-      nodes {
-        slug
-        id
-      }
-    }
+  const query = await graphql(`{
     allWpProject {
       nodes {
         slug
@@ -27,14 +21,21 @@ exports.createPages = async ({ graphql, actions }) => {
         slug
         id
       }
-    }}
-  `).then(result => {
+    }
+    allWpPage {
+      nodes {
+        slug
+        id
+      }
+    }
+  }`).then(result => {
     // projects
     result.data.allWpProject.nodes.forEach(node => {
       createPage({
         path: `portfolio/${node.slug}`,
         component: path.resolve(`./src/templates/project.js`),
         context: {
+          id: node.id,
           slug: node.slug,
           pdfId: parseInt(node.portfolioPdf) || 0
         },

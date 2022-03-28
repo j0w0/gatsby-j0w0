@@ -1,18 +1,19 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
+import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import Layout from '../components/Layout/Layout'
 import SiteMeta from '../components/SiteMeta/SiteMeta'
 import ContactCTA from '../components/ContactCTA/ContactCTA'
 
 const Project = ({ data }) => {
-
   const project = data.wpProject;
+  const projectPdf = data.wpMediaItem?.localFile?.publicURL;
+  const attachedMedia = project.attachedMedia.nodes;
+
   const {
     name: categoryName,
     uri: categoryUri
   } = project.projectCategories.nodes[0];
-
-  const projectPdf = data.wpMediaItem?.mediaItemUrl;
 
   return (
     <Layout>
@@ -21,9 +22,15 @@ const Project = ({ data }) => {
       <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
       {/* { TODO: add image/video slider } */}
+      {attachedMedia && attachedMedia.map(item => {
+        const image = getImage(item.gatsbyImage)
+        return item.gatsbyImage ? (
+          <GatsbyImage image={image} alt={item.altText} key={item.id} />
+        ) : null;
+      })}
 
       {project.websiteUrl && (
-        <div>Website URL: <a href={project.websiteUrl}target="_blank" rel="noreferrer">Demo</a></div>
+        <div>Website URL: <a href={project.websiteUrl} target="_blank" rel="noreferrer">Demo</a></div>
       )}
 
       {project.videoUrl && (
@@ -71,14 +78,30 @@ export const query = graphql`
       content
       websiteUrl
       videoUrl
-      portfolioPdf
-      uri
+      attachedMedia {
+        nodes {
+          id
+          altText
+          gatsbyImage(
+            width: 960
+            layout: FULL_WIDTH
+          )
+          localFile {
+            publicURL
+          }
+        }
+      }
       featuredImage {
         node {
           id
           altText
-          sourceUrl
-          mediaItemUrl
+          gatsbyImage(
+            width: 960
+            layout: FULL_WIDTH
+          )
+          localFile {
+            publicURL
+          }
         }
       }
       projectCategories {
@@ -97,7 +120,9 @@ export const query = graphql`
     }
     wpMediaItem(databaseId: { eq: $pdfId }) {
       id
-      mediaItemUrl
+      localFile {
+        publicURL
+      }
     }
   }
 `
