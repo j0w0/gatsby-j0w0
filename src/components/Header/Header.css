@@ -1,0 +1,28 @@
+.site-header {
+  background: #4d0c73;
+}
+
+.site-header .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.site-header h1 {
+  margin: 0;
+}
+
+.site-header a {
+  color: white;
+  text-decoration: none;
+}
+
+.site-header-menu ul {
+  display: flex;
+  column-gap: 15px;
+}
+
+.site-header-menu ul {
+  list-style: none;
+  padding: 0;
+}

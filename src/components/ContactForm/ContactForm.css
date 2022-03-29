@@ -1,0 +1,9 @@
+label {
+  display: flex;
+}
+
+.error {
+  font-size: 80%;
+  color: red;
+  margin: 0;
+}

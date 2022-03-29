@@ -4,7 +4,6 @@ html {
 }
 
 body {
-  margin: 0;
   line-height: 1.5;
 }
 
@@ -20,39 +19,8 @@ body {
   flex-direction: column;
 }
 
-.site-header,
-.site-footer {
-  background: #4d0c73;
-}
-
-.site-header .container {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.header-menu ul {
-  display: flex;
-  column-gap: 15px;
-}
-
-.header-menu a {
-  color: white;
-}
-
-.header-menu ul {
-  list-style: none;
-  padding: 0;
-}
-
 .site-content {
   flex: 1;
-}
-
-.site-footer,
-.site-footer a {
-  color: white;
-  text-decoration: none;
 }
 
 iframe {
@@ -71,14 +39,4 @@ iframe {
   left: 0;
   width: 100%;
   height: 100%;
-}
-
-label {
-  display: flex;
-}
-
-.error {
-  font-size: 80%;
-  color: red;
-  margin: 0;
 }

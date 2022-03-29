@@ -1,0 +1,9 @@
+.site-footer {
+  background: #4d0c73;
+}
+
+.site-footer,
+.site-footer a {
+  color: white;
+  text-decoration: none;
+}

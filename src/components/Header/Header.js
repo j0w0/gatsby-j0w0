@@ -1,24 +1,28 @@
 import * as React from "react"
-import PropTypes from "prop-types"
-import { Link } from "gatsby"
+import { Link, useStaticQuery, graphql } from "gatsby"
+import './Header.css'
 
-const Header = ({ siteTitle }) => {
+const Header = () => {
+  const data = useStaticQuery(graphql`
+    query SiteTitleQuery {
+      site {
+        siteMetadata {
+          title
+        }
+      }
+    }
+  `)
+
   return (
     <header className="site-header">
       <div className="container">
-        <h1 style={{ margin: 0 }}>
-          <Link
-            to="/"
-            style={{
-              color: `white`,
-              textDecoration: `none`,
-            }}
-          >
-            {siteTitle}
+        <h1>
+          <Link to="/">
+            {data.site.siteMetadata?.title || `j0w0`}
           </Link>
         </h1>
 
-        <nav className="header-menu">
+        <nav className="site-header-menu">
           <ul>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/portfolio">Portfolio</Link></li>
@@ -30,12 +34,7 @@ const Header = ({ siteTitle }) => {
   )
 }
 
-Header.propTypes = {
-  siteTitle: PropTypes.string,
-}
-
-Header.defaultProps = {
-  siteTitle: ``,
-}
+Header.propTypes = {}
+Header.defaultProps = {}
 
 export default Header

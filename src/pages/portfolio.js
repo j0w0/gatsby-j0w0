@@ -30,7 +30,6 @@ export const pageQuery = graphql`
             id
             altText
             gatsbyImage(
-              width: 768
               height: 768
               layout: FULL_WIDTH
             )
