@@ -3,6 +3,7 @@ import { Link, graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import SiteMeta from '../components/SiteMeta/SiteMeta'
 import ContactCTA from '../components/ContactCTA/ContactCTA'
+import ProjectGallery from '../components/ProjectGallery/ProjectGallery'
 
 const ProjectCategory = ({ data }) => {
   const page = data.allWpProjectCategory.nodes[0]
@@ -12,14 +13,7 @@ const ProjectCategory = ({ data }) => {
     <Layout>
       <SiteMeta title={page.name} />
       <h1>{page.name}</h1>
-
-      {projects.map(project => {
-        return (
-          <div key={project.id}>
-            <p><Link to={project.uri}>{project.title}</Link></p>
-          </div>
-        )
-      })}
+      <ProjectGallery projects={projects} />
 
       {/* { TODO: side column of categories/tags } */}
 
@@ -43,13 +37,30 @@ export const query = graphql`
       }
     }
     allWpProject(filter: {
-      projectCategories: {nodes: {elemMatch: {slug: {eq: $slug}}}}
+      projectTags: {nodes: {elemMatch: {slug: {eq: $slug}}}}
     }) {
       nodes {
         id
         slug
         title
         uri
+        featuredImage {
+          node {
+            id
+            altText
+            gatsbyImage(
+              width: 768
+              layout: FULL_WIDTH
+            )
+          }
+        }
+        projectCategories {
+          nodes {
+            name
+            slug
+            taxonomyName
+          }
+        }
       }
     }
   }

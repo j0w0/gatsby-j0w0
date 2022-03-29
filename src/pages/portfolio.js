@@ -2,23 +2,14 @@ import React from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout/Layout'
 import SiteMeta from '../components/SiteMeta/SiteMeta'
-import ProjectCard from '../components/ProjectCard/ProjectCard'
+import ProjectGallery from '../components/ProjectGallery/ProjectGallery'
 
 const Portfolio = ({ data }) => {
   return (
     <Layout>
       <SiteMeta title="Portfolio" />
       <h1>Portfolio</h1>
-      <div className="projects">
-        {data.allWpProject.nodes.map(project => {
-          return (
-            <ProjectCard
-              project={project}
-              key={project.id}
-            />
-          )
-        })}
-      </div>
+      <ProjectGallery projects={data.allWpProject.nodes} />
     </Layout>
   )
 }
@@ -39,7 +30,8 @@ export const pageQuery = graphql`
             id
             altText
             gatsbyImage(
-              width: 960
+              width: 768
+              height: 768
               layout: FULL_WIDTH
             )
           }

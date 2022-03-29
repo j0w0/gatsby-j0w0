@@ -82,9 +82,3 @@ label {
   color: red;
   margin: 0;
 }
-
-.projects {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-}
