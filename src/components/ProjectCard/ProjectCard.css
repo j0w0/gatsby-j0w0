@@ -1,0 +1,22 @@
+.project {
+  width: 100%;
+}
+
+@media screen and (min-width: 768px) {
+  .project {
+    width: 30%;
+  }
+}
+
+.project a {
+  text-decoration: none;
+}
+
+.project p {
+  font-weight: 600;
+}
+
+.project small {
+  color: gray;
+  font-weight: initial;
+}

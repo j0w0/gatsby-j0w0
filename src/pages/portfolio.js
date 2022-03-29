@@ -9,14 +9,16 @@ const Portfolio = ({ data }) => {
     <Layout>
       <SiteMeta title="Portfolio" />
       <h1>Portfolio</h1>
-      {data.allWpProject.nodes.map(project => {
-        return (
-          <ProjectCard
-            project={project}
-            key={project.id}
-          />
-        )
-      })}
+      <div className="projects">
+        {data.allWpProject.nodes.map(project => {
+          return (
+            <ProjectCard
+              project={project}
+              key={project.id}
+            />
+          )
+        })}
+      </div>
     </Layout>
   )
 }
