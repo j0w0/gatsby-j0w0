@@ -30,8 +30,12 @@ export const pageQuery = graphql`
             id
             altText
             gatsbyImage(
-              height: 768
               layout: FULL_WIDTH
+              width: 16
+              height: 9
+              placeholder: BLURRED
+              quality: 50
+              fit: FILL
             )
           }
         }
