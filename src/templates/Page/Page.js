@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout/Layout'
-import SiteMeta from '../components/SiteMeta/SiteMeta'
-import ContactForm from '../components/ContactForm/ContactForm'
-import ContactCTA from '../components/ContactCTA/ContactCTA'
+import Layout from '../../components/Layout/Layout'
+import SiteMeta from '../../components/SiteMeta/SiteMeta'
+import ContactForm from '../../components/ContactForm/ContactForm'
+import ContactCTA from '../../components/ContactCTA/ContactCTA'
 
 const Page = ({ data }) => {
   const page = data.allWpPage.nodes[0]

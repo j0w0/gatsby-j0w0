@@ -1,6 +1,5 @@
 import * as React from "react"
 import PropTypes from "prop-types"
-import "normalize.css"
 import "./Layout.css"
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"

@@ -1,9 +1,9 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../components/Layout/Layout'
-import SiteMeta from '../components/SiteMeta/SiteMeta'
-import ContactCTA from '../components/ContactCTA/ContactCTA'
-import ProjectGallery from '../components/ProjectGallery/ProjectGallery'
+import Layout from '../../components/Layout/Layout'
+import SiteMeta from '../../components/SiteMeta/SiteMeta'
+import ContactCTA from '../../components/ContactCTA/ContactCTA'
+import ProjectGallery from '../../components/ProjectGallery/ProjectGallery'
 
 const ProjectCategory = ({ data }) => {
   const page = data.allWpProjectCategory.nodes[0]
@@ -49,8 +49,12 @@ export const query = graphql`
             id
             altText
             gatsbyImage(
-              width: 768
               layout: FULL_WIDTH
+              width: 16
+              height: 9
+              placeholder: BLURRED
+              quality: 50
+              fit: FILL
             )
           }
         }

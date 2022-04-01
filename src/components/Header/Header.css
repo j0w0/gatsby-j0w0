@@ -1,5 +1,5 @@
 .site-header {
-  background: #4d0c73;
+  background-color: var(--j0w0-primary);
 }
 
 .site-header .container {

@@ -1,5 +1,7 @@
 import React, { useState } from 'react'
 import './ContactForm.css'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form'
 
 const ContactForm = () => {
   const [formData, setFormData] = useState({
@@ -52,43 +54,65 @@ const ContactForm = () => {
 
   return (
     <form onSubmit={handleFormSubmit}>
-      <div>
-        <label htmlFor="form-name">Name</label>
-        <input
+      <Form.Group
+        className="mb-3"
+        controlId="form-name"
+        htmlFor="form-name"
+      >
+        <Form.Label>Name</Form.Label>
+        <Form.Control
           type="text"
           name="name"
-          id="form-name"
           placeholder={formData.name.value}
           onChange={handleInputChange}
         />
-        {formData.name.error && <p className="error">Name is required.</p>}
-      </div>
+        {formData.name.error && (
+          <Form.Text className="text-danger">
+            Name is required.
+          </Form.Text>
+        )}
+      </Form.Group>
 
-      <div>
-        <label htmlFor="form-email">Email</label>
-        <input
-          type="text"
+      <Form.Group
+        className="mb-3"
+        controlId="form-email"
+        htmlFor="form-email"
+      >
+        <Form.Label>Email</Form.Label>
+        <Form.Control
+          type="email"
           name="email"
-          id="form-email"
           placeholder={formData.email.value}
           onChange={handleInputChange}
         />
-        {formData.email.error && <p className="error">Email is required.</p>}
-      </div>
+        {formData.email.error && (
+          <Form.Text className="text-danger">
+            Email is required.
+          </Form.Text>
+        )}
+      </Form.Group>
 
-      <div>
-        <label htmlFor="form-message">Message</label>
-        <textarea
+      <Form.Group
+        className="mb-3"
+        controlId="form-message"
+        htmlFor="form-message"
+      >
+        <Form.Label>Message</Form.Label>
+        <Form.Control
+          as="textarea"
           name="message"
-          id="form-message"
+          rows={3}
+          placeholder={formData.message.value}
           onChange={handleInputChange}
-        >
-          {formData.message.value}
-        </textarea>
-        {formData.message.error && <p className="error">Message is required.</p>}
-      </div>
+        />
+        {formData.message.error && (
+          <Form.Text className="text-danger">
+            Message is required.
+          </Form.Text>
+        )}
+      </Form.Group>
 
-      <button type="submit">Submit</button>
+      <Button type="submit">Submit</Button>
     </form>
   )
 }

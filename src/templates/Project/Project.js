@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import Layout from '../components/Layout/Layout'
-import SiteMeta from '../components/SiteMeta/SiteMeta'
-import ContactCTA from '../components/ContactCTA/ContactCTA'
+import './Project.css'
+import Layout from '../../components/Layout/Layout'
+import SiteMeta from '../../components/SiteMeta/SiteMeta'
+import ContactCTA from '../../components/ContactCTA/ContactCTA'
 
 const Project = ({ data }) => {
   const project = data.wpProject;
@@ -83,8 +84,12 @@ export const query = graphql`
           id
           altText
           gatsbyImage(
-            width: 960
             layout: FULL_WIDTH
+            width: 16
+            height: 9
+            placeholder: BLURRED
+            quality: 50
+            fit: FILL
           )
           localFile {
             publicURL
@@ -96,8 +101,12 @@ export const query = graphql`
           id
           altText
           gatsbyImage(
-            width: 960
             layout: FULL_WIDTH
+            width: 16
+            height: 9
+            placeholder: BLURRED
+            quality: 50
+            fit: FILL
           )
           localFile {
             publicURL

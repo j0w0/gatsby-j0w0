@@ -33,7 +33,7 @@ exports.createPages = async ({ graphql, actions }) => {
     result.data.allWpProject.nodes.forEach(node => {
       createPage({
         path: `portfolio/${node.slug}`,
-        component: path.resolve(`./src/templates/project.js`),
+        component: path.resolve(`./src/templates/Project/Project.js`),
         context: {
           id: node.id,
           slug: node.slug,
@@ -45,7 +45,7 @@ exports.createPages = async ({ graphql, actions }) => {
     result.data.allWpProjectCategory.nodes.forEach(node => {
       createPage({
         path: `portfolio/category/${node.slug}`,
-        component: path.resolve(`./src/templates/project-category.js`),
+        component: path.resolve(`./src/templates/ProjectCategory/ProjectCategory.js`),
         context: {
           slug: node.slug,
           id: node.id
@@ -56,7 +56,7 @@ exports.createPages = async ({ graphql, actions }) => {
     result.data.allWpProjectTag.nodes.forEach(node => {
       createPage({
         path: `portfolio/tag/${node.slug}`,
-        component: path.resolve(`./src/templates/project-tag.js`),
+        component: path.resolve(`./src/templates/ProjectTag/ProjectTag.js`),
         context: {
           slug: node.slug,
           id: node.id
@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
     result.data.allWpPage.nodes.forEach(page => {
       createPage({
         path: `${page.slug}`,
-        component: path.resolve(`./src/templates/page.js`),
+        component: path.resolve(`./src/templates/Page/Page.js`),
         context: {
           slug: page.slug,
           id: page.id
