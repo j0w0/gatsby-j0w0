@@ -20,6 +20,7 @@
 .site-header-menu ul {
   display: flex;
   column-gap: 15px;
+  margin: 0;
 }
 
 .site-header-menu ul {

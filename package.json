@@ -5,6 +5,7 @@
   "version": "0.1.0",
   "author": "Josh Woodcock <josh@j0w0.com>",
   "dependencies": {
+    "axios": "^0.26.1",
     "bootstrap": "^5.1.3",
     "gatsby": "^4.9.2",
     "gatsby-plugin-gatsby-cloud": "^4.9.0",
