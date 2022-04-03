@@ -33,8 +33,6 @@ export const pageQuery = graphql`
               layout: FULL_WIDTH
               width: 16
               height: 9
-              placeholder: BLURRED
-              quality: 50
               fit: FILL
             )
           }
