@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
-import Layout from '../../components/Layout/Layout'
-import SiteMeta from '../../components/SiteMeta/SiteMeta'
+import Layout from '../../layout/Layout/Layout'
+import SiteMeta from '../../layout/SiteMeta/SiteMeta'
 import ContactCTA from '../../components/ContactCTA/ContactCTA'
 import ProjectGallery from '../../components/ProjectGallery/ProjectGallery'
 

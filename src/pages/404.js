@@ -1,7 +1,7 @@
 import React, { useEffect } from "react"
 import { Link, navigate } from "gatsby"
-import Layout from "../components/Layout/Layout"
-import SiteMeta from "../components/SiteMeta/SiteMeta"
+import Layout from "../layout/Layout/Layout"
+import SiteMeta from "../layout/SiteMeta/SiteMeta"
 
 const NotFoundPage = () => {
   useEffect(() => {

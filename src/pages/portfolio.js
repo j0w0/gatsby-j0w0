@@ -1,7 +1,7 @@
 import React from 'react'
 import { graphql } from 'gatsby'
-import Layout from '../components/Layout/Layout'
-import SiteMeta from '../components/SiteMeta/SiteMeta'
+import Layout from '../layout/Layout/Layout'
+import SiteMeta from '../layout/SiteMeta/SiteMeta'
 import ProjectGallery from '../components/ProjectGallery/ProjectGallery'
 
 const Portfolio = ({ data }) => {

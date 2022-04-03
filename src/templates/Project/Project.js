@@ -2,8 +2,8 @@ import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
 import './Project.css'
-import Layout from '../../components/Layout/Layout'
-import SiteMeta from '../../components/SiteMeta/SiteMeta'
+import Layout from '../../layout/Layout/Layout'
+import SiteMeta from '../../layout/SiteMeta/SiteMeta'
 import ContactCTA from '../../components/ContactCTA/ContactCTA'
 
 const Project = ({ data }) => {
