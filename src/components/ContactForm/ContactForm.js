@@ -33,7 +33,7 @@ const ContactForm = () => {
     }));
   }
 
-  const handleFormSubmit = async (e) => {
+  const handleFormSubmit = e => {
     e.preventDefault();
     let hasError = false;
 
