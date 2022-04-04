@@ -21,7 +21,7 @@ const Page = ({ data }) => {
           {slug === "contact" && <ContactForm />}
         </div>
         <div className="col-md-3">
-          {slug !== "contact" && <ContactCTA />}
+          <ContactCTA contactPage={slug === "contact"} />
         </div>
       </div>
 
