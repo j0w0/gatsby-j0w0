@@ -12,7 +12,6 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <SiteMeta title={page.title} />
-
       <h1>{page.title}</h1>
 
       <div className="row">

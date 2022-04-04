@@ -9,15 +9,23 @@ const ProjectCategory = ({ data }) => {
   const page = data.allWpProjectCategory.nodes[0]
   const projects = data.allWpProject?.nodes;
 
+  console.log(data);
+
   return (
     <Layout>
       <SiteMeta title={page.name} />
-      <h1>{page.name}</h1>
-      <ProjectGallery projects={projects} />
+      <h1>{page.name} Category</h1>
 
-      {/* { TODO: side column of categories/tags } */}
+      <div className="row">
+        <div className="col-md-9">
+          <ProjectGallery projects={projects} />
+        </div>
+        <div className="col-md-3">
+          {/* { TODO: side column of categories/tags } */}
+          <ContactCTA />
+        </div>
+      </div>
 
-      <ContactCTA />
       <Link to="/portfolio">Back to Portfolio</Link>
     </Layout>
   )
@@ -37,7 +45,7 @@ export const query = graphql`
       }
     }
     allWpProject(filter: {
-      projectTags: {nodes: {elemMatch: {slug: {eq: $slug}}}}
+      projectCategories: {nodes: {elemMatch: {slug: {eq: $slug}}}}
     }) {
       nodes {
         id

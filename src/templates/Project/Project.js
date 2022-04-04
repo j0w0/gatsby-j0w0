@@ -20,49 +20,55 @@ const Project = ({ data }) => {
     <Layout>
       <SiteMeta title={project.title} />
       <h1>{project.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
-      {/* { TODO: add image/video slider } */}
-      {attachedMedia && attachedMedia.map(item => {
-        const image = getImage(item.gatsbyImage)
-        return item.gatsbyImage ? (
-          <GatsbyImage image={image} alt={item.altText} key={item.id} />
-        ) : null;
-      })}
+      <div className="row">
+        <div className="col-md-9">
+          <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
-      {project.websiteUrl && (
-        <div>Website URL: <a href={project.websiteUrl} target="_blank" rel="noreferrer">Demo</a></div>
-      )}
+          {/* { TODO: add image/video slider } */}
+          {attachedMedia && attachedMedia.map(item => {
+            const image = getImage(item.gatsbyImage)
+            return item.gatsbyImage ? (
+              <GatsbyImage image={image} alt={item.altText} key={item.id} />
+            ) : null;
+          })}
 
-      {project.videoUrl && (
-        <div className={iframe}>
-          <iframe
-            src={project.videoUrl}
-            title={`${project.title} Video`}
-            className={iframeSrc}>
-          </iframe>
+          {project.videoUrl && (
+            <div className={iframe}>
+              <iframe
+                src={project.videoUrl}
+                title={`${project.title} Video`}
+                className={iframeSrc}>
+              </iframe>
+            </div>
+          )}
+
+          {project.websiteUrl && (
+            <p>Website URL: <a href={project.websiteUrl} target="_blank" rel="noreferrer">Demo</a></p>
+          )}
+
+          {projectPdf && (
+            <p><a href={projectPdf} target="_blank" rel="noreferrer">View Project PDF</a></p>
+          )}
+
+          <p>Category:</p>
+          <ul>
+            <li><Link to={categoryUri}>{categoryName}</Link></li>
+          </ul>
+
+          <p>Tags:</p>
+          <ul>
+            {project.projectTags.nodes.map(tag => {
+              return <li key={tag.id}><Link to={tag.uri}>{tag.name}</Link></li>
+            })}
+          </ul>
         </div>
-      )}
+        <div className="col-md-3">
+          {/* { TODO: related projects } */}
+          <ContactCTA />
+        </div>
+      </div>
 
-      {projectPdf && (
-        <div><a href={projectPdf} target="_blank" rel="noreferrer">View Project PDF</a></div>
-      )}
-
-      <p>Category:</p>
-      <ul>
-        <li><Link to={categoryUri}>{categoryName}</Link></li>
-      </ul>
-
-      <p>Tags:</p>
-      <ul>
-        {project.projectTags.nodes.map(tag => {
-          return <li key={tag.id}><Link to={tag.uri}>{tag.name}</Link></li>
-        })}
-      </ul>
-
-      {/* { TODO: side column of related projects } */}
-
-      <ContactCTA />
       <Link to="/portfolio">Back to Portfolio</Link>
     </Layout>
   )

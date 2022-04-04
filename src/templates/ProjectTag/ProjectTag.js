@@ -12,12 +12,18 @@ const ProjectTag = ({ data }) => {
   return (
     <Layout>
       <SiteMeta title={page.name} />
-      <h1>{page.name}</h1>
-      <ProjectGallery projects={projects} />
+      <h1>{page.name} Tag</h1>
 
-      {/* { TODO: side column of categories/tags } */}
-
-      <ContactCTA />
+      <div className="row">
+        <div className="col-md-9">
+          <ProjectGallery projects={projects} />
+        </div>
+        <div className="col-md-3">
+          {/* { TODO: side column of categories/tags } */}
+          <ContactCTA />
+        </div>
+      </div>
+      
       <Link to="/portfolio">Back to Portfolio</Link>
     </Layout>
   )
