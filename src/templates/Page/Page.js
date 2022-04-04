@@ -12,9 +12,19 @@ const Page = ({ data }) => {
   return (
     <Layout>
       <SiteMeta title={page.title} />
+
       <h1>{page.title}</h1>
-      <div dangerouslySetInnerHTML={{ __html: page.content }} />
-      {slug === "contact" ? <ContactForm /> : <ContactCTA />}
+
+      <div className="row">
+        <div className="col-md-9">
+          <div dangerouslySetInnerHTML={{ __html: page.content }} />
+          {slug === "contact" && <ContactForm />}
+        </div>
+        <div className="col-md-3">
+          {slug !== "contact" && <ContactCTA />}
+        </div>
+      </div>
+
       <Link to="/">Back to Home</Link>
     </Layout>
   )

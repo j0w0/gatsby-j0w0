@@ -1,5 +1,4 @@
 import React, { useState } from 'react'
-import './ContactForm.css'
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form'
 import { submitContactForm } from '../../services/contactForm';
@@ -76,44 +75,50 @@ const ContactForm = () => {
 
           {!sent && (
             <form onSubmit={handleFormSubmit}>
-              <Form.Group
-                className="mb-3"
-                controlId="form-name"
-                htmlFor="form-name"
-              >
-                <Form.Label>Name</Form.Label>
-                <Form.Control
-                  type="text"
-                  name="name"
-                  placeholder={formData.name.value}
-                  onChange={handleInputChange}
-                />
-                {formData.name.error && (
-                  <Form.Text className="text-danger">
-                    Name is required.
-                  </Form.Text>
-                )}
-              </Form.Group>
 
-              <Form.Group
-                className="mb-3"
-                controlId="form-email"
-                htmlFor="form-email"
-              >
-                <Form.Label>Email</Form.Label>
-                <Form.Control
-                  type="email"
-                  name="email"
-                  placeholder={formData.email.value}
-                  onChange={handleInputChange}
-                />
-                {formData.email.error && (
-                  <Form.Text className="text-danger">
-                    Email is required.
-                  </Form.Text>
-                )}
-              </Form.Group>
-
+              <div className="row">
+                <div className="col">
+                  <Form.Group
+                    className="mb-3"
+                    controlId="form-name"
+                    htmlFor="form-name"
+                  >
+                    <Form.Label>Name</Form.Label>
+                    <Form.Control
+                      type="text"
+                      name="name"
+                      placeholder={formData.name.value}
+                      onChange={handleInputChange}
+                    />
+                    {formData.name.error && (
+                      <Form.Text className="text-danger">
+                        Name is required.
+                      </Form.Text>
+                    )}
+                  </Form.Group>
+                </div>
+                <div className="col">
+                  <Form.Group
+                    className="mb-3"
+                    controlId="form-email"
+                    htmlFor="form-email"
+                  >
+                    <Form.Label>Email</Form.Label>
+                    <Form.Control
+                      type="email"
+                      name="email"
+                      placeholder={formData.email.value}
+                      onChange={handleInputChange}
+                    />
+                    {formData.email.error && (
+                      <Form.Text className="text-danger">
+                        Email is required.
+                      </Form.Text>
+                    )}
+                  </Form.Group>
+                </div>
+              </div>
+              
               <Form.Group
                 className="mb-3"
                 controlId="form-message"

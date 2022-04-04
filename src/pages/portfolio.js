@@ -3,13 +3,23 @@ import { graphql } from 'gatsby'
 import Layout from '../layout/Layout/Layout'
 import SiteMeta from '../layout/SiteMeta/SiteMeta'
 import ProjectGallery from '../components/ProjectGallery/ProjectGallery'
+import ContactCTA from '../components/ContactCTA/ContactCTA'
 
 const Portfolio = ({ data }) => {
   return (
-    <Layout>
+    <Layout fullWidth>
       <SiteMeta title="Portfolio" />
-      <h1>Portfolio</h1>
-      <ProjectGallery projects={data.allWpProject.nodes} />
+      <div className="container container-fluid">
+        <h1>Portfolio</h1>
+        <div className="row">
+          <div className="col-md-9">
+            <ProjectGallery projects={data.allWpProject.nodes} />
+          </div>
+          <div className="col-md-3">
+            <ContactCTA />
+          </div>
+        </div>
+      </div>
     </Layout>
   )
 }

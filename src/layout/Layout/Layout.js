@@ -4,12 +4,12 @@ import { site, siteContent } from "./Layout.module.css"
 import Header from "../Header/Header"
 import Footer from "../Footer/Footer"
 
-const Layout = ({ children }) => {
+const Layout = ({ fullWidth = false, children }) => {
   return (
     <div className={site}>
       <Header />
       <main className={siteContent}>
-        <div className="container">{children}</div>
+        <div className={fullWidth ? null : `container`}>{children}</div>
       </main>
       <Footer />
     </div>
