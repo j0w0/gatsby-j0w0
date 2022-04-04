@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, graphql } from 'gatsby'
 import { GatsbyImage, getImage } from 'gatsby-plugin-image'
-import './Project.css'
+import { iframe, iframeSrc } from './Project.module.css'
 import Layout from '../../layout/Layout/Layout'
 import SiteMeta from '../../layout/SiteMeta/SiteMeta'
 import ContactCTA from '../../components/ContactCTA/ContactCTA'
@@ -35,11 +35,11 @@ const Project = ({ data }) => {
       )}
 
       {project.videoUrl && (
-        <div className="iframe">
+        <div className={iframe}>
           <iframe
             src={project.videoUrl}
             title={`${project.title} Video`}
-            className="iframe-src">
+            className={iframeSrc}>
           </iframe>
         </div>
       )}

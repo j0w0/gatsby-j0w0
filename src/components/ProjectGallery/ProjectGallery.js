@@ -1,10 +1,10 @@
 import React from 'react'
-import './ProjectGallery.css'
+import { projectGallery } from './ProjectGallery.module.css'
 import ProjectCard from '../ProjectCard/ProjectCard'
 
 const ProjectGallery = ({ projects }) => {
   return (
-    <div className="project-gallery">
+    <div className={projectGallery}>
       {projects.map(project => {
         return (
           <ProjectCard

@@ -2,7 +2,7 @@
   background-color: var(--j0w0-primary);
 }
 
-.site-header .container {
+.site-header > div {
   display: flex;
   align-items: center;
   justify-content: space-between;

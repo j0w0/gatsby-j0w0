@@ -1,6 +1,6 @@
 import * as React from "react"
 import { Link, useStaticQuery, graphql } from "gatsby"
-import './Header.css'
+import { siteHeader, siteHeaderMenu } from './Header.module.css'
 
 const Header = () => {
   const data = useStaticQuery(graphql`
@@ -14,7 +14,7 @@ const Header = () => {
   `)
 
   return (
-    <header className="site-header">
+    <header className={siteHeader}>
       <div className="container">
         <h1>
           <Link to="/">
@@ -22,7 +22,7 @@ const Header = () => {
           </Link>
         </h1>
 
-        <nav className="site-header-menu">
+        <nav className={siteHeaderMenu}>
           <ul>
             <li><Link to="/about">About</Link></li>
             <li><Link to="/portfolio">Portfolio</Link></li>
