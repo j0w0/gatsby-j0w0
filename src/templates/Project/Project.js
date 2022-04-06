@@ -5,6 +5,7 @@ import { iframe, iframeSrc } from './Project.module.css'
 import Layout from '../../layout/Layout/Layout'
 import SiteMeta from '../../layout/SiteMeta/SiteMeta'
 import ContactCTA from '../../components/ContactCTA/ContactCTA'
+import Slider from 'react-slick'
 
 const Project = ({ data }) => {
   const project = data.wpProject;
@@ -16,6 +17,14 @@ const Project = ({ data }) => {
     uri: categoryUri
   } = project.projectCategories.nodes[0];
 
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1
+  };
+
   return (
     <Layout>
       <SiteMeta title={project.title} />
@@ -25,23 +34,24 @@ const Project = ({ data }) => {
         <div className="col-md-9">
           <div dangerouslySetInnerHTML={{ __html: project.content }} />
 
-          {/* { TODO: add image/video slider } */}
-          {attachedMedia && attachedMedia.map(item => {
-            const image = getImage(item.gatsbyImage)
-            return item.gatsbyImage ? (
-              <GatsbyImage image={image} alt={item.altText} key={item.id} />
-            ) : null;
-          })}
+          <Slider {...sliderSettings}>
+              {attachedMedia && attachedMedia.map(item => {
+                const image = getImage(item.croppedImage)
+                return item.croppedImage ? (
+                  <GatsbyImage image={image} alt={item.altText} key={item.id} />
+                ) : null;
+              })}
 
-          {project.videoUrl && (
-            <div className={iframe}>
-              <iframe
-                src={project.videoUrl}
-                title={`${project.title} Video`}
-                className={iframeSrc}>
-              </iframe>
-            </div>
-          )}
+              {project.videoUrl && (
+                <div className={iframe}>
+                  <iframe
+                    src={project.videoUrl}
+                    title={`${project.title} Video`}
+                    className={iframeSrc}>
+                  </iframe>
+                </div>
+              )}
+          </Slider>
 
           {project.websiteUrl && (
             <p>Website URL: <a href={project.websiteUrl} target="_blank" rel="noreferrer">Demo</a></p>
@@ -89,11 +99,16 @@ export const query = graphql`
         nodes {
           id
           altText
-          gatsbyImage(
+          fullSizeImage: gatsbyImage(
             layout: FULL_WIDTH
+            fit: FILL
+            width: 768
+          )
+          croppedImage: gatsbyImage(
+            layout: FULL_WIDTH
+            fit: FILL
             width: 16
             height: 9
-            fit: FILL
           )
           localFile {
             publicURL
@@ -104,11 +119,16 @@ export const query = graphql`
         node {
           id
           altText
-          gatsbyImage(
+          fullSizeImage: gatsbyImage(
             layout: FULL_WIDTH
+            fit: FILL
+            width: 768
+          )
+          croppedImage: gatsbyImage(
+            layout: FULL_WIDTH
+            fit: FILL
             width: 16
             height: 9
-            fit: FILL
           )
           localFile {
             publicURL

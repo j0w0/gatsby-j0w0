@@ -9,8 +9,6 @@ const ProjectCategory = ({ data }) => {
   const page = data.allWpProjectCategory.nodes[0]
   const projects = data.allWpProject?.nodes;
 
-  console.log(data);
-
   return (
     <Layout>
       <SiteMeta title={page.name} />

@@ -1,0 +1,59 @@
+.slick-list {
+  box-shadow: 0px 0px 4px 0px #0000002e;
+}
+
+.slick-next,
+.slick-prev {
+  top: 46%;
+  height: 24px;
+  width: 24px;
+}
+
+.slick-next:before,
+.slick-prev:before {
+  font-size: 24px;
+}
+
+.slick-prev {
+  left: -12px;
+  z-index: 1;
+}
+
+.slick-next {
+  right: -12px;
+}
+
+.slick-dots {
+  position: relative;
+  bottom: 0;
+}
+
+.slick-dots li,
+.slick-dots li button:before {
+  content: '';
+  height: unset;
+  width: unset;
+}
+
+.slick-dots li button {
+  padding: 0;
+  height: 10px;
+  background: var(--bs-gray-200);
+}
+
+.slick-dots li:hover button {
+  background: var(--bs-gray-400);
+}
+
+.slick-dots li.slick-active button {
+  background-color: var(--j0w0-primary);
+}
+
+.slick-next:before,
+.slick-prev:before {
+  color: var(--j0w0-primary);
+}
+
+.slick-slide > div > div {
+  display: block !important;
+}
